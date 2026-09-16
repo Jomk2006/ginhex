@@ -1,0 +1,126 @@
+/* Brand typefaces (per approved GENHEX identity board): Space Grotesk for
+   headlines/titles, Inter for body/UI. Loaded via runtime @import rather
+   than next/font/google so the production build has no build-time network
+   dependency on fonts.googleapis.com — the browser fetches these normally
+   at runtime, same as any other external stylesheet. Must precede the
+   Tailwind import — CSS requires @import rules to come first. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: "Space Grotesk", var(--font-sans);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+:root {
+  /* GENHEX brand tokens — from the approved brand identity board.
+     Cyan = primary interactive color, Lime = accent/highlight only. */
+  --genhex-black: #0a0a0a;
+  --genhex-white: #ffffff;
+  --genhex-cyan: #00bcc8;
+  --genhex-lime: #d0ff00;
+  --genhex-soft-gray: #f3f5f5;
+  --genhex-graphite: #202426;
+
+  --background: var(--genhex-white);
+  --foreground: var(--genhex-black);
+  --card: var(--genhex-white);
+  --card-foreground: var(--genhex-black);
+  --border: color-mix(in srgb, var(--genhex-graphite) 15%, transparent);
+  --muted: var(--genhex-soft-gray);
+  --muted-foreground: color-mix(in srgb, var(--genhex-graphite) 65%, transparent);
+
+  --primary: var(--genhex-cyan);
+  --primary-foreground: var(--genhex-black);
+  --accent: var(--genhex-lime);
+  --accent-foreground: var(--genhex-black);
+  --destructive: #e5484d;
+  --destructive-foreground: var(--genhex-white);
+  --ring: var(--genhex-cyan);
+}
+
+.dark {
+  --background: var(--genhex-black);
+  --foreground: var(--genhex-white);
+  --card: var(--genhex-graphite);
+  --card-foreground: var(--genhex-white);
+  --border: color-mix(in srgb, var(--genhex-white) 12%, transparent);
+  --muted: color-mix(in srgb, var(--genhex-graphite) 60%, black);
+  --muted-foreground: color-mix(in srgb, var(--genhex-white) 65%, transparent);
+
+  --primary: var(--genhex-cyan);
+  --primary-foreground: var(--genhex-black);
+  --accent: var(--genhex-lime);
+  --accent-foreground: var(--genhex-black);
+  --destructive: #ff6b6b;
+  --destructive-foreground: var(--genhex-black);
+  --ring: var(--genhex-cyan);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+@keyframes fade-up-blur {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-fade-up-blur {
+  animation: fade-up-blur 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up-blur {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Mobile browsers' address bar makes 100vh measure the viewport as if
+   the bar were hidden, so content anchored to the bottom of a 100vh
+   box can end up partly below the actually-visible area on first
+   load. 100dvh tracks the real visible viewport and updates as the
+   browser chrome shows/hides; 100vh stays first as a fallback for
+   browsers that don't support dvh (unknown units are ignored, not
+   an error, so the second declaration simply never overrides there). */
+.hero-min-h {
+  min-height: 100vh;
+  min-height: 100dvh;
+}

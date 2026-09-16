@@ -1,0 +1,69 @@
+{
+  "auth": {
+    "signIn": {
+      "title": "Sign in",
+      "subtitle": "Welcome back to GENHEX.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "forgotPassword": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Create one",
+      "orContinueWith": "Or continue with",
+      "google": "Continue with Google"
+    },
+    "signUp": {
+      "title": "Create your account",
+      "subtitle": "Join GENHEX and start building what's next.",
+      "fullNameEn": "Full name (English)",
+      "fullNameAr": "Full name (Arabic)",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "signInLink": "Sign in"
+    },
+    "resetPassword": {
+      "title": "Reset your password",
+      "subtitle": "We'll email you a link to set a new password.",
+      "email": "Email",
+      "submit": "Send reset link",
+      "backToSignIn": "Back to sign in",
+      "success": "Check your email for a reset link."
+    },
+    "updatePassword": {
+      "title": "Set a new password",
+      "subtitle": "Choose a new password for your account.",
+      "password": "New password",
+      "confirmPassword": "Confirm new password",
+      "submit": "Update password"
+    },
+    "errors": {
+      "invalidCredentials": "Incorrect email or password.",
+      "emailInUse": "An account with this email already exists.",
+      "generic": "Something went wrong. Please try again.",
+      "weakPassword": "Password must be at least 8 characters.",
+      "passwordMismatch": "Passwords don't match."
+    }
+  },
+  "nav": {
+    "signOut": "Sign out",
+    "dashboard": "Dashboard"
+  },
+  "roles": {
+    "student": "Student",
+    "instructor": "Instructor",
+    "admin": "Admin"
+  },
+  "dashboard": {
+    "welcome": "Welcome, {name}",
+    "studentOverview": "Your courses, attendance, exams, and certificates will appear here.",
+    "instructorOverview": "Your courses, attendance sessions, and grading queue will appear here.",
+    "adminOverview": "Platform-wide management will appear here."
+  },
+  "marketing": {
+    "tagline": "Build what's next.",
+    "description": "GENHEX is a bilingual platform for learning the technologies that turn ideas into systems.",
+    "cta": "Explore GENHEX"
+  }
+}
